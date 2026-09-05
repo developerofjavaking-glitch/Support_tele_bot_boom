@@ -1,0 +1,52 @@
+:root{
+  --bg-app:#0f172a;
+  --bg-sidebar:#0f172a;
+  --bg-chat:#1e293b;
+  --accent:#229ed9;
+  --accent-2:#06b6d4;
+  --bubble-in:#334155;
+  --bubble-out:#0284c7;
+}
+html,body{height:100%;}
+body{
+  background:var(--bg-app);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+}
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-thumb{background:#334155;border-radius:10px;}
+::-webkit-scrollbar-track{background:transparent;}
+
+.user-card.active{background:#1e293b;border-left:3px solid var(--accent-2);}
+.user-card:hover{background:#16213a;}
+
+.bubble-in{background:var(--bubble-in);border-radius:14px 14px 14px 3px;}
+.bubble-out{background:var(--bubble-out);border-radius:14px 14px 3px 14px;}
+
+textarea#messageInput{resize:none;max-height:120px;}
+
+.avatar{
+  display:flex;align-items:center;justify-content:center;
+  font-weight:600;color:#fff;flex-shrink:0;
+}
+
+.status-dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+.status-online{background:#22c55e;box-shadow:0 0 6px #22c55e;}
+.status-offline{background:#64748b;}
+
+.unread-badge{
+  background:var(--accent-2);color:#04222a;font-size:11px;font-weight:700;
+  min-width:20px;height:20px;border-radius:999px;display:flex;align-items:center;justify-content:center;
+  padding:0 6px;
+}
+
+#toast-container{position:fixed;top:16px;right:16px;z-index:100;display:flex;flex-direction:column;gap:8px;}
+.toast{
+  padding:10px 16px;border-radius:8px;color:#fff;font-size:14px;
+  box-shadow:0 4px 12px rgba(0,0,0,.35);animation:slideIn .25s ease-out;
+}
+@keyframes slideIn{from{transform:translateX(30px);opacity:0;}to{transform:translateX(0);opacity:1;}}
+
+@media (max-width:768px){
+  .sidebar-panel{position:absolute;inset:0;z-index:20;width:100%!important;}
+  .chat-panel{width:100%!important;}
+}
